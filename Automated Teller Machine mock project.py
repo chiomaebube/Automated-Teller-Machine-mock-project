@@ -114,23 +114,38 @@ def withdrawal():
     balanceRemaining == currentbalance
     print("Recieved")
     print("Take your cash %s" % balanceRemaining)
+    logout()
 
 
 def deposit():
     currentbalance = 0.00
     amountToDeposit = float(input("How much would you like to deposit?\n"))
-    currentbalance + amountToDeposit
+    currentbalance += amountToDeposit
     print("Your account balance is now %s " % currentbalance)
-
+    logout()
 
 def complain():
     issue = input("What issue will you like to report?\n")
     print("Complaint received!")
     print("Thank you for contacting us")
+    logout()
+
 
 
 def logout():
-    print("You want to Logout!")
+   confirm = int(input("Do You want to Logout? 1(Yes) 2(No)\n"))
+
+   if confirm == 1:
+       print("Bye!!")
+
+   elif confirm == 2:
+        print("Okay!") 
+        login()
+
+   else:
+        print("please enter 1 or 2")
+        logout()
+
 
 
 #### BANKING SYSTEM STARTS ####
