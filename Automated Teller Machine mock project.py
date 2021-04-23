@@ -1,5 +1,29 @@
 import datetime
 
+def init():
+    print('You are welcome to Mybank plc')
+    accVerification = input('Do you have an account with us? Type Yes or No')
+    if(accVerification == Yes):
+        login()
+
+    elif(accVerification == No):
+        register()
+
+    else:
+        print("Please try again; enter Yes or No next time") 
+
+def login():
+    pritn('')
+
+def register():
+    print('')
+
+def bankOperation():
+    print('')
+
+def GenAcctNum():
+    print('')
+
 name = input("What is your name?\n")
 allowedUsers = ['Chioma', 'Uche', 'Kemi', 'Jide']
 allowedPassword = ['passwordChioma', 'passwordUche', 'passwordKemi', 'passwordJide']
@@ -54,3 +78,9 @@ if name in allowedUsers:
 
 else:
     print("Name not found, try again")
+
+
+
+#### BANKING SYSTEM STARTS ####
+
+init()
