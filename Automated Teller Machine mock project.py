@@ -24,28 +24,33 @@ def init():
 
 def login():
     print('Please enter your details to login')
-    name = input("What is your name?\n")
-    allowedUsers = ['Chioma', 'Uche', 'Kemi', 'Jide']
-    allowedPassword = ['passwordChioma', 'passwordUche', 'passwordKemi', 'passwordJide']
 
-    if name in allowedUsers:
+    loginSuccessful = False
+
+    while loginSuccessful == False:
+   
+        username = input("What is your username?\n")
         password = input("Enter your password:\n")
-        userId = allowedUsers.index(name)
+           
+        for userDetails in database.items():
+            if (userDetails[1] == username):
+                if(password[3] == password):
 
-        if password in allowedPassword[userId]:
-            print("What's up %s" % name)
+                    print("What's up %s" % username)
+                    loginSuccessful = True
 
-            dT = datetime.datetime.now()
+                    dT = datetime.datetime.now()
 
-            print ("Today's date:  = %s/%s/%s" % (dT.day, dT.month, dT.year))
-            print ("The time is now: = %s:%s" % (dT.hour, dT.minute))
-            bankOperation()
+                    print ("Today's date:  = %s/%s/%s" % (dT.day, dT.month, dT.year))
+                    print ("The time is now: = %s:%s" % (dT.hour, dT.minute))
+                   
 
-        else:
-            print("Password incorrect, please try again")
+                else:
+                    print("Password incorrect, please try again")
 
-    else:
-        print("Name not found, try again")
+            else:
+                print("Name not found, try again")
+    bankOperation(userDetails)
 
 def register():
     print('Please enter your details to login\n\n')
@@ -59,14 +64,15 @@ def register():
 
     database[accNumber] = [ Fullname, username, email, password ]
     print("Your account has been created")
+    print("Here's your account number" + accNumber)
 
    # return database
 
     login()
    
-def bankOperation():
+def bankOperation(user):
     currentbalance = 0.00
-    print("What will you like to do today?")
+    print("Welcome %s, what will you like to do today?" % user[0])
     print("1. Withdrawal" )
     print("2. Cash Deposit")
     print("3. Complaint")
