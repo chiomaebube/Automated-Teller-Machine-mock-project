@@ -2,18 +2,18 @@ import datetime
 
 def init():
     print('You are welcome to Mybank plc')
-    accVerification = input('Do you have an account with us? Type Yes or No')
-    if(accVerification == Yes):
+    accVerification = input('Do you have an account with us? Type 1(Yes) or 2(No)')
+    if(accVerification == 1):
         login()
 
-    elif(accVerification == No):
+    elif(accVerification == 2):
         register()
 
     else:
-        print("Please try again; enter Yes or No next time") 
+        print("Please try again; enter 1 or 2 next time") 
 
 def login():
-    pritn('')
+    print('')
 
 def register():
     print('')
